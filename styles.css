@@ -644,7 +644,8 @@ div[id^="response-"].group.last-response .tidychat-action-btn,
 }
 
 /* Doubao 操作栏按钮样式 */
-[data-testid="receive_message"] .tidychat-action-btn {
+[data-testid="receive_message"] .tidychat-action-btn,
+[data-testid="send_message"] .tidychat-action-btn {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -659,11 +660,13 @@ div[id^="response-"].group.last-response .tidychat-action-btn,
   flex-shrink: 0 !important;
 }
 
-[data-testid="receive_message"] .tidychat-action-btn:hover {
+[data-testid="receive_message"] .tidychat-action-btn:hover,
+[data-testid="send_message"] .tidychat-action-btn:hover {
   background: rgba(16, 185, 129, 0.1) !important;
 }
 
-[data-testid="receive_message"] .tidychat-action-btn svg {
+[data-testid="receive_message"] .tidychat-action-btn svg,
+[data-testid="send_message"] .tidychat-action-btn svg {
   width: 16px !important;
   height: 16px !important;
 }
