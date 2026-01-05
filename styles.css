@@ -586,3 +586,23 @@ div[id^="response-"][data-tidychat-collapsed="true"] {
   justify-content: flex-start !important;
 }
 
+/* Doubao 特有内容隐藏 */
+[data-testid="send_message"][data-tidychat-collapsed="true"] [data-testid="message_content"],
+[data-testid="receive_message"][data-tidychat-collapsed="true"] [data-testid="message_content"],
+[data-testid="send_message"][data-tidychat-collapsed="true"] [data-foundation-type],
+[data-testid="receive_message"][data-tidychat-collapsed="true"] [data-foundation-type] {
+  display: none !important;
+}
+
+/* Doubao 容器重置 */
+[data-testid="send_message"][data-tidychat-collapsed="true"],
+[data-testid="receive_message"][data-tidychat-collapsed="true"] {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 8px 0 !important;
+  background: transparent !important;
+  justify-content: flex-start !important;
+}
+
