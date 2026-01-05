@@ -333,8 +333,8 @@
       const popupMaxHeight = 300;
       
       let left, top;
-      // 悬浮窗紧贴消息条下方（只偏移 5px）
-      top = rect.bottom + 5;
+      // 悬浮窗紧贴消息条下方（无间隙，避免鼠标移动时闪烁）
+      top = rect.bottom;
 
       // 悬浮窗起始位置与消息条对齐
       left = rect.left;
@@ -351,7 +351,7 @@
 
       // Adjust if too close to bottom edge - show above instead
       if (top + popupMaxHeight > window.innerHeight - 20) {
-        top = rect.top - popupMaxHeight - 5;
+        top = rect.top - popupMaxHeight;
         // 确保不超出顶部
         if (top < 20) {
           top = 20;
@@ -453,7 +453,7 @@
           if (!self.isHoveringPopup) {
             self.hidePreviewPopup();
           }
-        }, 150);
+        }, 300);
       });
     }
 
