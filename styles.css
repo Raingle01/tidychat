@@ -413,39 +413,11 @@
   max-height: 60px !important;
   padding: 12px 16px !important;
   overflow: hidden !important;
+}
+
+/* 折叠状态下显示指针 */
+[data-tidychat-collapsed="true"] {
   cursor: pointer;
-}
-
-/* ============================================
-   折叠状态下的对齐方式
-   ============================================ */
-
-/* 用户消息 - 右对齐 */
-[data-tidychat-collapsed="true"][data-tidychat-type="user"] {
-  display: flex !important;
-  justify-content: flex-end !important;
-  margin-left: auto !important;
-  max-width: 80% !important;
-  background: rgba(16, 185, 129, 0.08) !important;
-  border-radius: 16px !important;
-}
-
-[data-tidychat-collapsed="true"][data-tidychat-type="user"] .tidychat-preview {
-  text-align: right;
-}
-
-/* AI 消息 - 左对齐 */
-[data-tidychat-collapsed="true"][data-tidychat-type="assistant"] {
-  display: flex !important;
-  justify-content: flex-start !important;
-  margin-right: auto !important;
-  max-width: 80% !important;
-  background: rgba(59, 130, 246, 0.08) !important;
-  border-radius: 16px !important;
-}
-
-[data-tidychat-collapsed="true"][data-tidychat-type="assistant"] .tidychat-preview {
-  text-align: left;
 }
 
 /* ============================================
