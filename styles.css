@@ -599,6 +599,19 @@ div[id^="response-"][data-tidychat-collapsed="true"] {
   justify-content: flex-start !important;
 }
 
+/* Grok 操作栏按钮样式 - 与原生按钮同步显示/隐藏 */
+div[id^="response-"].group .tidychat-action-btn {
+  opacity: 0 !important;
+  transition: opacity 0.1s ease !important;
+}
+
+div[id^="response-"].group:hover .tidychat-action-btn,
+div[id^="response-"].group:focus-within .tidychat-action-btn,
+div[id^="response-"].group.last-response .tidychat-action-btn,
+.last-response .tidychat-action-btn {
+  opacity: 1 !important;
+}
+
 /* Doubao 特有内容隐藏 */
 [data-testid="send_message"][data-tidychat-collapsed="true"] [data-testid="message_content"],
 [data-testid="receive_message"][data-tidychat-collapsed="true"] [data-testid="message_content"],
