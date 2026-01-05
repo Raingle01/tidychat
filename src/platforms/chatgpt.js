@@ -66,7 +66,13 @@ class ChatGPTAdapter extends window.TidyChat.BasePlatformAdapter {
   }
 
   getActionBar(messageElement) {
-    // ChatGPT 操作栏在消息底部
+    // ChatGPT 操作栏：找到包含复制按钮的容器
+    const copyButton = messageElement.querySelector('[data-testid="copy-turn-action-button"]');
+    if (copyButton) {
+      return copyButton.parentElement;
+    }
+    
+    // 备选：旧版结构
     const textMessage = messageElement.querySelector('.text-message');
     if (textMessage && textMessage.nextElementSibling) {
       const actionContainer = textMessage.nextElementSibling.querySelector('div:last-child');
