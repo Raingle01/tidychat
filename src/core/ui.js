@@ -327,33 +327,31 @@
       const isUser = this.adapter.isUserMessage(messageElement);
       popup.setAttribute('data-type', isUser ? 'user' : 'assistant');
 
-      // Position the popup based on message alignment
+      // Position the popup aligned with the collapsed message bar
       const rect = messageElement.getBoundingClientRect();
       const popupWidth = 400;
       const popupMaxHeight = 300;
       
       let left, top;
-      top = rect.bottom + 10;
+      // 悬浮窗紧贴消息条下方（只偏移 5px）
+      top = rect.bottom + 5;
 
-      if (isUser) {
-        // 用户消息（右对齐）：弹窗靠右显示
-        left = rect.right - popupWidth;
-        // 确保不超出左边界
-        if (left < 20) {
-          left = 20;
-        }
-      } else {
-        // AI 消息（左对齐）：弹窗靠左显示
-        left = rect.left;
-        // 确保不超出右边界
-        if (left + popupWidth > window.innerWidth - 20) {
-          left = window.innerWidth - popupWidth - 20;
-        }
+      // 悬浮窗起始位置与消息条对齐
+      left = rect.left;
+      
+      // 确保不超出右边界
+      if (left + popupWidth > window.innerWidth - 20) {
+        left = window.innerWidth - popupWidth - 20;
+      }
+      
+      // 确保不超出左边界
+      if (left < 20) {
+        left = 20;
       }
 
       // Adjust if too close to bottom edge - show above instead
       if (top + popupMaxHeight > window.innerHeight - 20) {
-        top = rect.top - popupMaxHeight - 10;
+        top = rect.top - popupMaxHeight - 5;
         // 确保不超出顶部
         if (top < 20) {
           top = 20;
