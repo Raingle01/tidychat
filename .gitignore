@@ -1,25 +1,35 @@
-# OS generated files
+# macOS
 .DS_Store
-.DS_Store?
+.AppleDouble
+.LSOverride
 ._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
+
+# Windows
 Thumbs.db
+ehthumbs.db
+Desktop.ini
 
 # IDE
 .idea/
 .vscode/
 *.swp
 *.swo
+*~
 
-# Node modules (if any)
+# Node.js (如果将来添加构建工具)
 node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # Build output
 dist/
 build/
+*.zip
 
 # Logs
 *.log
 
+# Temporary files
+*.tmp
+*.temp
