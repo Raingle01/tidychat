@@ -14,6 +14,7 @@ Desktop.ini
 .vscode/
 *.swp
 *.swo
+.cursorrules
 *~
 
 # Node.js (如果将来添加构建工具)
