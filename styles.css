@@ -625,6 +625,31 @@ div[id^="response-"][data-tidychat-collapsed="true"] {
   display: none !important;
 }
 
+/* Doubao 操作栏按钮样式 */
+[data-testid="receive_message"] .tidychat-action-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 24px !important;
+  height: 24px !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  color: #10b981 !important;
+  flex-shrink: 0 !important;
+}
+
+[data-testid="receive_message"] .tidychat-action-btn:hover {
+  background: rgba(16, 185, 129, 0.1) !important;
+}
+
+[data-testid="receive_message"] .tidychat-action-btn svg {
+  width: 16px !important;
+  height: 16px !important;
+}
+
 /* ============================================
    Gemini 平台特定样式
    ============================================ */
