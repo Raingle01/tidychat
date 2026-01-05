@@ -506,8 +506,8 @@
   width: 100% !important;
   min-height: auto !important;
   max-height: 60px !important;
-  padding: 0 !important; /* 必须为 0，让预览条贴边 */
-  margin: 4px 0 !important;
+  padding: 0 !important;
+  margin: 8px 0 !important;
   overflow: hidden !important;
   cursor: pointer;
   background: transparent !important;
@@ -517,34 +517,21 @@
   clear: both !important;
 }
 
-/* 2. 预览条通用样式 (严格参考 ChatGPT) */
+/* 2. 预览条通用样式 */
 .tidychat-preview {
-  position: relative !important;
-  display: flex !important;
-  align-items: center !important;
+  display: block !important;
   width: 100% !important;
-  height: 52px !important; /* 固定高度更有呼吸感 */
-  padding: 0 24px 0 20px !important;
+  padding: 16px 20px !important;
   font-size: 14px !important;
+  line-height: 1.5 !important;
   border-radius: 12px !important;
   cursor: pointer !important;
-  transition: all 0.2s ease !important;
+  transition: background 0.2s ease !important;
   box-sizing: border-box !important;
   white-space: nowrap !important;
   text-overflow: ellipsis !important;
   overflow: hidden !important;
-}
-
-/* 使用伪元素制作“上下圆角”的左侧标记 */
-.tidychat-preview::before {
-  content: '' !important;
-  position: absolute !important;
-  left: 0 !important;
-  top: 12px !important;
-  bottom: 12px !important;
-  width: 4px !important;
-  border-radius: 0 4px 4px 0 !important;
-  transition: all 0.2s ease !important;
+  border-left: 4px solid !important;
 }
 
 .tidychat-preview:hover {
@@ -553,30 +540,24 @@
 
 /* 3. 用户消息 - 绿色主题 */
 [data-tidychat-type="user"] .tidychat-preview {
-  background: rgba(16, 185, 129, 0.04) !important;
+  background: rgba(16, 185, 129, 0.06) !important;
   color: #065f46 !important;
-}
-
-[data-tidychat-type="user"] .tidychat-preview::before {
-  background: #10b981 !important;
+  border-left-color: #10b981 !important;
 }
 
 [data-tidychat-type="user"] .tidychat-preview:hover {
-  background: rgba(16, 185, 129, 0.08) !important;
+  background: rgba(16, 185, 129, 0.1) !important;
 }
 
 /* 4. AI 消息 - 蓝色主题 */
 [data-tidychat-type="assistant"] .tidychat-preview {
-  background: rgba(59, 130, 246, 0.04) !important;
+  background: rgba(59, 130, 246, 0.06) !important;
   color: #1e40af !important;
-}
-
-[data-tidychat-type="assistant"] .tidychat-preview::before {
-  background: #3b82f6 !important;
+  border-left-color: #3b82f6 !important;
 }
 
 [data-tidychat-type="assistant"] .tidychat-preview:hover {
-  background: rgba(59, 130, 246, 0.08) !important;
+  background: rgba(59, 130, 246, 0.1) !important;
 }
 
 /* ============================================
