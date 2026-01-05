@@ -39,21 +39,28 @@
 
 ## 安装方法
 
-### 方式一：从源码安装（开发者）
+### 🎯 方式一：下载安装包（推荐小白用户）
 
-1. **克隆仓库**
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/tidychat.git
-   cd tidychat
-   ```
+1. **[📥 点击下载 tidychat-v1.0.0.zip](https://github.com/AeroXi/tidychat/releases/latest)**
+2. 解压 ZIP 文件，得到 `tidychat` 文件夹
+3. Chrome 地址栏输入 `chrome://extensions/` 回车
+4. 打开右上角「开发者模式」
+5. 点击「加载已解压的扩展程序」
+6. 选择解压出来的 `tidychat` 文件夹
+7. 完成 🎉
 
-2. **加载扩展**
-   - 打开 Chrome 浏览器，访问 `chrome://extensions/`
-   - 开启右上角的「开发者模式」
-   - 点击「加载已解压的扩展程序」
-   - 选择 `tidychat` 文件夹
+> 📖 详细图文教程请看 [INSTALL.md](INSTALL.md)
 
-### 方式二：从 Chrome 应用商店安装（即将上线）
+### 方式二：从源码安装（开发者）
+
+```bash
+git clone https://github.com/AeroXi/tidychat.git
+cd tidychat
+```
+
+然后在 `chrome://extensions/` 页面加载 `tidychat` 文件夹即可。
+
+### 方式三：Chrome 应用商店（即将上线）
 
 > 🚧 正在申请上架 Chrome Web Store，敬请期待！
 
