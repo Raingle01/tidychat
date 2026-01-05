@@ -69,20 +69,9 @@ class DoubaoAdapter extends window.TidyChat.BasePlatformAdapter {
     return document.body;
   }
 
-  // 支持操作栏注入
+  // 不支持操作栏注入
   supportsActionBarInjection() {
-    return true;
-  }
-
-  getActionBar(messageElement) {
-    // 豆包操作栏在 [data-testid="message_action_bar"] 中
-    const actionBar = messageElement.querySelector('[data-testid="message_action_bar"]');
-    if (actionBar) {
-      // 找到按钮容器 .message-action-button-main
-      const buttonContainer = actionBar.querySelector('.message-action-button-main');
-      return buttonContainer || actionBar;
-    }
-    return null;
+    return false;
   }
 }
 
