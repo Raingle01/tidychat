@@ -648,3 +648,29 @@ response-container .tidychat-btn-container {
   display: none !important;
 }
 
+/* Gemini 操作栏按钮样式 */
+response-container .tidychat-action-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 40px !important;
+  height: 40px !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  border-radius: 50% !important;
+  cursor: pointer !important;
+  color: #10b981 !important;
+  vertical-align: middle !important;
+  flex-shrink: 0 !important;
+}
+
+response-container .tidychat-action-btn:hover {
+  background: rgba(16, 185, 129, 0.1) !important;
+}
+
+response-container .tidychat-action-btn svg {
+  width: 20px !important;
+  height: 20px !important;
+}
+

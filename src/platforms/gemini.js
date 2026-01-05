@@ -82,9 +82,20 @@ class GeminiAdapter extends window.TidyChat.BasePlatformAdapter {
     return document.body;
   }
 
-  // 不支持操作栏注入
+  // 支持操作栏注入
   supportsActionBarInjection() {
-    return false;
+    return true;
+  }
+
+  getActionBar(messageElement) {
+    // Gemini AI 消息操作栏在 .buttons-container-v2 中
+    if (!this.isUserMessage(messageElement)) {
+      const buttonsContainer = messageElement.querySelector('.buttons-container-v2');
+      if (buttonsContainer) {
+        return buttonsContainer;
+      }
+    }
+    return null;
   }
 }
 
