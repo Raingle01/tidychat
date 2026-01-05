@@ -162,8 +162,25 @@
 
       const actionBtn = this.createActionBarButton(messageElement);
       
-      // 插入到操作栏末尾
-      actionBar.appendChild(actionBtn);
+      // 获取插入位置（默认 append）
+      const insertPosition = this.adapter.getActionBarInsertPosition 
+        ? this.adapter.getActionBarInsertPosition() 
+        : 'append';
+      
+      switch (insertPosition) {
+        case 'before':
+          actionBar.before(actionBtn);
+          break;
+        case 'after':
+          actionBar.after(actionBtn);
+          break;
+        case 'prepend':
+          actionBar.prepend(actionBtn);
+          break;
+        case 'append':
+        default:
+          actionBar.appendChild(actionBtn);
+      }
     }
 
     /**

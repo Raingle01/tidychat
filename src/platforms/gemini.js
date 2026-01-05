@@ -92,10 +92,20 @@ class GeminiAdapter extends window.TidyChat.BasePlatformAdapter {
     if (!this.isUserMessage(messageElement)) {
       const buttonsContainer = messageElement.querySelector('.buttons-container-v2');
       if (buttonsContainer) {
+        // 返回 copy-button，按钮会插入到它后面
+        const copyButton = buttonsContainer.querySelector('copy-button');
+        if (copyButton) {
+          return copyButton;
+        }
         return buttonsContainer;
       }
     }
     return null;
+  }
+
+  // 指定按钮插入位置为 "after"
+  getActionBarInsertPosition() {
+    return 'after';
   }
 }
 
