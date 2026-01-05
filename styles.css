@@ -599,6 +599,11 @@ div[id^="response-"][data-tidychat-collapsed="true"] {
   justify-content: flex-start !important;
 }
 
+/* Grok 悬浮按钮隐藏 */
+div[id^="response-"].group .tidychat-btn-container {
+  display: none !important;
+}
+
 /* Grok 操作栏按钮样式 - 与原生按钮同步显示/隐藏 */
 div[id^="response-"].group .tidychat-action-btn {
   opacity: 0 !important;
