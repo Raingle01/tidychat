@@ -585,3 +585,37 @@ div[id^="response-"][data-tidychat-collapsed="true"] {
   align-items: stretch !important;
   justify-content: flex-start !important;
 }
+
+/* Gemini 特有内容隐藏 */
+user-query[data-tidychat-collapsed="true"] .user-query-container,
+model-response[data-tidychat-collapsed="true"] .response-container,
+model-response[data-tidychat-collapsed="true"] bard-avatar {
+  display: none !important;
+}
+
+/* Gemini 容器重置 */
+user-query,
+model-response,
+user-query[data-tidychat-collapsed="true"],
+model-response[data-tidychat-collapsed="true"] {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  clear: both !important;
+  float: none !important;
+}
+
+user-query[data-tidychat-collapsed="true"],
+model-response[data-tidychat-collapsed="true"] {
+  padding: 0 !important;
+  margin: 8px 0 !important;
+  background: transparent !important;
+}
+
+/* 彻底清除 Gemini 内部所有可能干扰全宽布局的元素 */
+user-query[data-tidychat-collapsed="true"] > div,
+model-response[data-tidychat-collapsed="true"] > div,
+user-query[data-tidychat-collapsed="true"] .user-query-container,
+model-response[data-tidychat-collapsed="true"] .response-container {
+  display: none !important;
+}

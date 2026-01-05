@@ -284,7 +284,7 @@
       popup.className = 'tidychat-preview-popup';
       popup.innerHTML = `
         <div class="tidychat-preview-popup-header">
-          <span class="tidychat-preview-popup-title">Preview</span>
+          <span class="tidychat-preview-popup-title">PREVIEW</span>
           <button class="tidychat-preview-popup-close" title="Close">&times;</button>
         </div>
         <div class="tidychat-preview-popup-content"></div>

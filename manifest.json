@@ -37,6 +37,11 @@
         "https://poe.com/*"
       ],
       "js": [
+        "src/platforms/base.js",
+        "src/platforms/chatgpt.js",
+        "src/platforms/grok.js",
+        "src/platforms/gemini.js",
+        "src/platforms/claude.js",
         "src/platforms/index.js",
         "src/core/collapser.js",
         "src/core/ui.js",
