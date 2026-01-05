@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TidyChat</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="7 8 12 3 17 8"></polyline>
+        <polyline points="7 16 12 21 17 16"></polyline>
+        <line x1="12" y1="3" x2="12" y2="21"></line>
+      </svg>
+    </div>
+    <div class="header-text">
+      <div class="title">TidyChat</div>
+      <div class="subtitle">AI Chat Collapser</div>
+    </div>
+    <span id="platformBadge" class="platform-badge"></span>
+  </div>
+
+  <button id="toggleBtn" class="toggle-btn">
+    <svg id="collapseIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="7 8 12 3 17 8"></polyline>
+      <polyline points="7 16 12 21 17 16"></polyline>
+      <line x1="12" y1="3" x2="12" y2="21"></line>
+    </svg>
+    <svg id="expandIcon" class="hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="7 4 12 9 17 4"></polyline>
+      <polyline points="7 20 12 15 17 20"></polyline>
+    </svg>
+    <span id="btnText">Collapse All Messages</span>
+  </button>
+
+  <div class="settings">
+    <div class="settings-title">Settings</div>
+    <div class="setting-item">
+      <div>
+        <div class="setting-label">Collapse Mode</div>
+        <div class="setting-desc">Choose which messages to collapse</div>
+      </div>
+      <select id="collapseMode" class="setting-select">
+        <option value="all">All Messages</option>
+        <option value="ai">AI Only</option>
+        <option value="user">User Only</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="status">
+    <div class="status-row">
+      <span class="status-label">Current State</span>
+      <span id="statusValue" class="status-value expanded">Expanded</span>
+    </div>
+  </div>
+
+  <div class="supported-platforms">
+    <div class="platforms-title">Supported Platforms</div>
+    <div class="platforms-list">
+      <span class="platform-tag">ChatGPT</span>
+      <span class="platform-tag">Grok</span>
+      <span class="platform-tag">Gemini</span>
+      <span class="platform-tag">Claude</span>
+      <span class="platform-tag">Poe</span>
+    </div>
+  </div>
+
+  <div id="errorMsg" class="error-msg">
+    Please open a supported AI chat platform to use this extension.
+  </div>
+
+  <div class="social-links">
+    <a href="#" class="social-link wechat" id="wechatBtn" title="WeChat: Raingle01">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 01.213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 00.167-.054l1.903-1.114a.864.864 0 01.717-.098 10.16 10.16 0 002.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 01-1.162 1.178A1.17 1.17 0 014.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 01-1.162 1.178 1.17 1.17 0 01-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 01.598.082l1.584.926a.272.272 0 00.14.045c.134 0 .24-.111.24-.247 0-.06-.023-.12-.038-.177l-.327-1.233a.582.582 0 01-.023-.156.49.49 0 01.201-.398C23.024 18.48 24 16.82 24 14.98c0-3.21-2.931-5.837-6.656-6.088V8.89c-.135-.01-.269-.03-.407-.03zm-2.53 3.274c.535 0 .969.44.969.982a.976.976 0 01-.969.983.976.976 0 01-.969-.983c0-.542.434-.982.97-.982zm4.844 0c.535 0 .969.44.969.982a.976.976 0 01-.969.983.976.976 0 01-.969-.983c0-.542.434-.982.969-.982z"/>
+      </svg>
+    </a>
+    <a href="https://xhslink.com/m/ArwymS9aAFN" target="_blank" class="social-link xiaohongshu" title="Xiaohongshu">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.615 14.154h-2.423l-1.346-3.462h-.077l-1.346 3.462H9.385L7.5 11.077h2.077l1.039 3.5h.076l1.27-3.5h1.615l1.27 3.5h.076l1.039-3.5H18l-1.385 5.077z"/>
+      </svg>
+    </a>
+    <a href="https://x.com/Tkdiff1024" target="_blank" class="social-link twitter" title="Twitter / X">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+      </svg>
+    </a>
+  </div>
+
+  <div id="wechatToast" class="wechat-toast">WeChat ID copied: Raingle01</div>
+
+  <div class="footer">
+    v1.0.0 by Raingle
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

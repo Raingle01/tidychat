@@ -1,0 +1,17 @@
+# TidyChat Project Rules
+
+## Git Commit Rule
+- After making any code changes, always commit the changes with a clear, descriptive commit message in English.
+- Commit message format: `type: description`
+- Types: feat, fix, style, refactor, docs, chore
+- Example: `feat: add hover preview for collapsed messages`
+
+## Code Style
+- Use English for all code comments and commit messages
+- Follow existing code patterns and naming conventions
+- Keep functions small and focused
+
+## Testing
+- Test changes in browser after modifications
+- Verify on supported platforms (ChatGPT, Grok, etc.)
+

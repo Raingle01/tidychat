@@ -1,0 +1,496 @@
+/**
+ * TidyChat - AI Chat Collapser Styles
+ * 用户消息：绿色 | AI消息：蓝色
+ */
+
+/* Global toggle button - fixed position */
+.tidychat-global-btn {
+  position: fixed;
+  z-index: 10000;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+  color: white !important;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+  transition: all 0.2s ease;
+}
+
+.tidychat-global-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.5);
+}
+
+.tidychat-global-btn:active {
+  transform: translateY(0);
+}
+
+/* 拖拽时的样式 */
+.tidychat-global-btn:active {
+  cursor: grabbing !important;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.5);
+}
+
+/* Processing 状态 - 简单的视觉反馈 */
+.tidychat-global-btn.processing {
+  opacity: 0.6;
+  pointer-events: none;
+  transform: scale(0.95);
+}
+
+/* ============================================
+   悬停预览弹窗
+   ============================================ */
+
+.tidychat-preview-popup {
+  position: fixed;
+  z-index: 10001;
+  width: 400px;
+  max-width: calc(100vw - 40px);
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+
+.tidychat-preview-popup.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Popup header */
+.tidychat-preview-popup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  border-bottom: 1px solid #e5e7eb;
+  background: #f9fafb;
+  border-radius: 12px 12px 0 0;
+}
+
+.tidychat-preview-popup-title {
+  font-size: 12px;
+  font-weight: 500;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tidychat-preview-popup-close {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  color: #9ca3af;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.tidychat-preview-popup-close:hover {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.tidychat-preview-popup-content {
+  max-height: 300px;
+  padding: 16px 20px;
+  overflow-y: auto;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #374151;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Scrollbar styling */
+.tidychat-preview-popup-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.tidychat-preview-popup-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.tidychat-preview-popup-content::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.tidychat-preview-popup-content::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+/* User message popup - green accent */
+.tidychat-preview-popup[data-type="user"] {
+  border-top: 3px solid #10b981;
+}
+
+/* AI message popup - blue accent */
+.tidychat-preview-popup[data-type="assistant"] {
+  border-top: 3px solid #3b82f6;
+}
+
+/* Dark mode */
+.dark .tidychat-preview-popup,
+[data-theme="dark"] .tidychat-preview-popup {
+  background: #1f2937;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.dark .tidychat-preview-popup-header,
+[data-theme="dark"] .tidychat-preview-popup-header {
+  background: #111827;
+  border-bottom-color: #374151;
+}
+
+.dark .tidychat-preview-popup-title,
+[data-theme="dark"] .tidychat-preview-popup-title {
+  color: #9ca3af;
+}
+
+.dark .tidychat-preview-popup-close,
+[data-theme="dark"] .tidychat-preview-popup-close {
+  color: #6b7280;
+}
+
+.dark .tidychat-preview-popup-close:hover,
+[data-theme="dark"] .tidychat-preview-popup-close:hover {
+  background: #374151;
+  color: #e5e7eb;
+}
+
+.dark .tidychat-preview-popup-content,
+[data-theme="dark"] .tidychat-preview-popup-content {
+  color: #e5e7eb;
+}
+
+.dark .tidychat-preview-popup-content::-webkit-scrollbar-track,
+[data-theme="dark"] .tidychat-preview-popup-content::-webkit-scrollbar-track {
+  background: #374151;
+}
+
+.dark .tidychat-preview-popup-content::-webkit-scrollbar-thumb,
+[data-theme="dark"] .tidychat-preview-popup-content::-webkit-scrollbar-thumb {
+  background: #4b5563;
+}
+
+.dark .tidychat-preview-popup-content::-webkit-scrollbar-thumb:hover,
+[data-theme="dark"] .tidychat-preview-popup-content::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+.tidychat-global-btn .tidychat-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Show collapse icon by default, hide expand */
+.tidychat-global-btn .tidychat-icon-collapse-all {
+  display: block;
+}
+
+.tidychat-global-btn .tidychat-icon-expand-all {
+  display: none;
+}
+
+/* When all collapsed, show expand icon */
+.tidychat-global-btn[data-all-collapsed="true"] .tidychat-icon-collapse-all {
+  display: none;
+}
+
+.tidychat-global-btn[data-all-collapsed="true"] .tidychat-icon-expand-all {
+  display: block;
+}
+
+/* Individual message toggle button container */
+.tidychat-btn-container {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+[data-tidychat-initialized]:hover .tidychat-btn-container {
+  opacity: 1;
+}
+
+/* Hide the floating button when collapsed (use action bar button or click to expand) */
+[data-tidychat-collapsed="true"] .tidychat-btn-container {
+  display: none;
+}
+
+/* ============================================
+   用户消息样式 - 绿色
+   ============================================ */
+
+/* 用户消息的折叠按钮 */
+[data-tidychat-type="user"] .tidychat-toggle-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: none;
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+[data-tidychat-type="user"] .tidychat-toggle-btn:hover {
+  background: rgba(16, 185, 129, 0.2);
+  color: #059669;
+}
+
+/* 用户消息的预览文本 */
+[data-tidychat-type="user"] .tidychat-preview {
+  padding: 14px 20px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #065f46;
+  background: rgba(16, 185, 129, 0.06);
+  border-radius: 10px;
+  margin: 8px 0;
+  border-left: 4px solid #10b981;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+[data-tidychat-type="user"] .tidychat-preview:hover {
+  background: rgba(16, 185, 129, 0.1);
+  transform: translateX(2px);
+}
+
+/* ============================================
+   AI 消息样式 - 蓝色
+   ============================================ */
+
+/* AI 消息的折叠按钮 */
+[data-tidychat-type="assistant"] .tidychat-toggle-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: none;
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+[data-tidychat-type="assistant"] .tidychat-toggle-btn:hover {
+  background: rgba(59, 130, 246, 0.2);
+  color: #2563eb;
+}
+
+/* AI 消息的预览文本 */
+[data-tidychat-type="assistant"] .tidychat-preview {
+  padding: 14px 20px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #1e40af;
+  background: rgba(59, 130, 246, 0.06);
+  border-radius: 10px;
+  margin: 8px 0;
+  border-left: 4px solid #3b82f6;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+[data-tidychat-type="assistant"] .tidychat-preview:hover {
+  background: rgba(59, 130, 246, 0.1);
+  transform: translateX(2px);
+}
+
+/* ============================================
+   操作栏内的收起按钮（与 ChatGPT 原生风格一致）
+   ============================================ */
+
+.tidychat-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #10b981;
+  position: relative;
+}
+
+.tidychat-action-btn:hover {
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.tidychat-action-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+
+/* 深色模式下的操作按钮 */
+.dark .tidychat-action-btn,
+[data-theme="dark"] .tidychat-action-btn {
+  color: #34d399;
+}
+
+.dark .tidychat-action-btn:hover,
+[data-theme="dark"] .tidychat-action-btn:hover {
+  background: rgba(16, 185, 129, 0.15);
+}
+
+/* ============================================
+   通用样式
+   ============================================ */
+
+.tidychat-toggle-btn .tidychat-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Show collapse icon by default */
+.tidychat-toggle-btn .tidychat-icon-collapse {
+  display: block;
+}
+
+.tidychat-toggle-btn .tidychat-icon-expand {
+  display: none;
+}
+
+/* When collapsed, show expand icon */
+[data-tidychat-collapsed="true"] .tidychat-toggle-btn .tidychat-icon-collapse {
+  display: none;
+}
+
+[data-tidychat-collapsed="true"] .tidychat-toggle-btn .tidychat-icon-expand {
+  display: block;
+}
+
+/* Message collapse animation */
+[data-tidychat-initialized="true"] {
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  overflow: hidden;
+}
+
+/* Collapsed state - hide ALL children except preview */
+[data-tidychat-collapsed="true"] > * {
+  display: none !important;
+}
+
+/* Only show the preview */
+[data-tidychat-collapsed="true"] > .tidychat-preview {
+  display: block !important;
+}
+
+[data-tidychat-collapsed="true"] {
+  min-height: auto !important;
+  max-height: 60px !important;
+  padding: 12px 16px !important;
+  overflow: hidden !important;
+}
+
+/* 折叠状态下显示指针 */
+[data-tidychat-collapsed="true"] {
+  cursor: pointer;
+}
+
+/* ============================================
+   深色模式
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+  /* 用户消息 - 深色模式 */
+  [data-tidychat-type="user"] .tidychat-toggle-btn {
+    background: rgba(16, 185, 129, 0.15);
+    color: #34d399;
+  }
+
+  [data-tidychat-type="user"] .tidychat-toggle-btn:hover {
+    background: rgba(16, 185, 129, 0.25);
+    color: #6ee7b7;
+  }
+
+  [data-tidychat-type="user"] .tidychat-preview {
+    background: rgba(16, 185, 129, 0.1);
+    color: #6ee7b7;
+  }
+
+  /* AI 消息 - 深色模式 */
+  [data-tidychat-type="assistant"] .tidychat-toggle-btn {
+    background: rgba(59, 130, 246, 0.15);
+    color: #60a5fa;
+  }
+
+  [data-tidychat-type="assistant"] .tidychat-toggle-btn:hover {
+    background: rgba(59, 130, 246, 0.25);
+    color: #93c5fd;
+  }
+
+  [data-tidychat-type="assistant"] .tidychat-preview {
+    background: rgba(59, 130, 246, 0.1);
+    color: #93c5fd;
+  }
+}
+
+/* ChatGPT/Claude 深色模式 class-based */
+.dark [data-tidychat-type="user"] .tidychat-toggle-btn,
+[data-theme="dark"] [data-tidychat-type="user"] .tidychat-toggle-btn {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+}
+
+.dark [data-tidychat-type="user"] .tidychat-toggle-btn:hover,
+[data-theme="dark"] [data-tidychat-type="user"] .tidychat-toggle-btn:hover {
+  background: rgba(16, 185, 129, 0.25);
+  color: #6ee7b7;
+}
+
+.dark [data-tidychat-type="user"] .tidychat-preview,
+[data-theme="dark"] [data-tidychat-type="user"] .tidychat-preview {
+  background: rgba(16, 185, 129, 0.1);
+  color: #6ee7b7;
+}
+
+.dark [data-tidychat-type="assistant"] .tidychat-toggle-btn,
+[data-theme="dark"] [data-tidychat-type="assistant"] .tidychat-toggle-btn {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+}
+
+.dark [data-tidychat-type="assistant"] .tidychat-toggle-btn:hover,
+[data-theme="dark"] [data-tidychat-type="assistant"] .tidychat-toggle-btn:hover {
+  background: rgba(59, 130, 246, 0.25);
+  color: #93c5fd;
+}
+
+.dark [data-tidychat-type="assistant"] .tidychat-preview,
+[data-theme="dark"] [data-tidychat-type="assistant"] .tidychat-preview {
+  background: rgba(59, 130, 246, 0.1);
+  color: #93c5fd;
+}
