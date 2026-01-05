@@ -58,15 +58,15 @@
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(10px);
-  transition: all 0.2s ease;
+  transition: opacity 0.15s ease, visibility 0.15s ease;
   overflow: hidden;
+  pointer-events: none;
 }
 
 .tidychat-preview-popup.show {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0);
+  pointer-events: auto;
 }
 
 /* Popup header */
