@@ -571,6 +571,19 @@
   display: none !important;
 }
 
+/* ChatGPT 折叠消息条呼吸感 */
+article[data-turn][data-tidychat-collapsed="true"] {
+  max-width: 48rem !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+article[data-turn][data-tidychat-collapsed="true"] .tidychat-preview {
+  margin: 0 !important;
+}
+
 /* Grok 特有内容隐藏 */
 [data-tidychat-collapsed="true"] .message-bubble,
 [data-tidychat-collapsed="true"] .action-buttons,
