@@ -316,6 +316,11 @@
      * 显示预览弹窗
      */
     showPreviewPopup(messageElement, event) {
+      // 检查消息是否仍处于折叠状态
+      if (messageElement.getAttribute('data-tidychat-collapsed') !== 'true') {
+        return;
+      }
+      
       const popup = this.createPreviewPopup();
       const content = popup.querySelector('.tidychat-preview-popup-content');
       
