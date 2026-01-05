@@ -40,7 +40,7 @@
 
 ### 🎯 方式一：下载安装包（推荐小白用户）
 
-1. **[📥 点击下载 tidychat-v1.0.0.zip](https://github.com/AeroXi/tidychat/releases/latest)**
+1. **[📥 点击下载 tidychat-v1.0.0.zip](https://github.com/Raingle01/tidychat/releases/latest)**
 2. 解压 ZIP 文件，得到 `tidychat` 文件夹
 3. Chrome 地址栏输入 `chrome://extensions/` 回车
 4. 打开右上角「开发者模式」
@@ -53,7 +53,7 @@
 ### 方式二：从源码安装（开发者）
 
 ```bash
-git clone https://github.com/AeroXi/tidychat.git
+git clone https://github.com/Raingle01/tidychat.git
 cd tidychat
 ```
 

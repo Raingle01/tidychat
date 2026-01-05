@@ -2,7 +2,7 @@
 
 ## 📥 第一步：下载插件
 
-点击下载：[tidychat-v1.0.0.zip](https://github.com/AeroXi/tidychat/releases/latest)
+点击下载：[tidychat-v1.0.0.zip](https://github.com/Raingle01/tidychat/releases/latest)
 
 ## 📂 第二步：解压文件
 
@@ -53,6 +53,6 @@
 ---
 
 有问题？欢迎反馈：
-- GitHub Issues: https://github.com/AeroXi/tidychat/issues
+- GitHub Issues: https://github.com/Raingle01/tidychat/issues
 - 微信：Raingle01
 
