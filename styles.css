@@ -494,3 +494,112 @@
   background: rgba(59, 130, 246, 0.1);
   color: #93c5fd;
 }
+
+/* ============================================
+   Grok 平台特定样式
+   遵循 UI Design Law
+   ============================================ */
+
+/* Grok 消息容器 - 确保折叠样式正确应用 */
+div[id^="response-"][data-tidychat-collapsed="true"] {
+  min-height: auto !important;
+  max-height: 60px !important;
+  padding: 12px 16px !important;
+  overflow: hidden !important;
+  cursor: pointer;
+  border-radius: 12px !important;
+}
+
+/* Grok 消息内容隐藏 */
+div[id^="response-"][data-tidychat-collapsed="true"] .message-bubble,
+div[id^="response-"][data-tidychat-collapsed="true"] .action-buttons,
+div[id^="response-"][data-tidychat-collapsed="true"] .response-content-markdown {
+  display: none !important;
+}
+
+/* Grok 折叠预览显示 */
+div[id^="response-"][data-tidychat-collapsed="true"] > .tidychat-preview {
+  display: block !important;
+}
+
+/* Grok 用户消息折叠样式 - 绿色 */
+div[id^="response-"][data-tidychat-type="user"][data-tidychat-collapsed="true"] {
+  background: rgba(16, 185, 129, 0.06) !important;
+}
+
+div[id^="response-"][data-tidychat-type="user"] .tidychat-preview {
+  padding: 14px 20px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #065f46;
+  background: rgba(16, 185, 129, 0.06);
+  border-radius: 10px;
+  margin: 0;
+  border-left: 4px solid #10b981;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+div[id^="response-"][data-tidychat-type="user"] .tidychat-preview:hover {
+  background: rgba(16, 185, 129, 0.1);
+  transform: translateX(2px);
+}
+
+/* Grok AI 消息折叠样式 - 蓝色 */
+div[id^="response-"][data-tidychat-type="assistant"][data-tidychat-collapsed="true"] {
+  background: rgba(59, 130, 246, 0.06) !important;
+}
+
+div[id^="response-"][data-tidychat-type="assistant"] .tidychat-preview {
+  padding: 14px 20px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #1e40af;
+  background: rgba(59, 130, 246, 0.06);
+  border-radius: 10px;
+  margin: 0;
+  border-left: 4px solid #3b82f6;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+div[id^="response-"][data-tidychat-type="assistant"] .tidychat-preview:hover {
+  background: rgba(59, 130, 246, 0.1);
+  transform: translateX(2px);
+}
+
+/* Grok 深色模式 */
+.dark div[id^="response-"][data-tidychat-type="user"] .tidychat-preview {
+  background: rgba(16, 185, 129, 0.1);
+  color: #6ee7b7;
+}
+
+.dark div[id^="response-"][data-tidychat-type="assistant"] .tidychat-preview {
+  background: rgba(59, 130, 246, 0.1);
+  color: #93c5fd;
+}
+
+/* Grok 操作栏按钮 - 遵循绿色主题 */
+div[id^="response-"] .tidychat-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  border-radius: 9999px;
+  cursor: pointer;
+  color: #10b981;
+  transition: all 0.15s ease;
+}
+
+div[id^="response-"] .tidychat-action-btn:hover {
+  background: rgba(16, 185, 129, 0.1);
+}
+
+div[id^="response-"] .tidychat-action-btn svg {
+  width: 16px;
+  height: 16px;
+}
