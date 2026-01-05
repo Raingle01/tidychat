@@ -97,11 +97,20 @@ class GrokAdapter extends window.TidyChat.BasePlatformAdapter {
     // Grok 操作栏：.action-buttons 内的第一个 flex 容器
     const actionButtons = messageElement.querySelector('.action-buttons');
     if (actionButtons) {
-      // 找到包含按钮的 flex 容器
+      // 找到"更多操作"按钮，在它后面插入
+      const moreButton = actionButtons.querySelector('[aria-label="更多操作"]');
+      if (moreButton) {
+        return moreButton;
+      }
+      // 备选：找到包含按钮的 flex 容器
       const flexContainer = actionButtons.querySelector('.flex.items-center');
       return flexContainer || actionButtons;
     }
     return null;
+  }
+
+  getActionBarInsertPosition() {
+    return 'after';
   }
 }
 
