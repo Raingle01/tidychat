@@ -612,3 +612,39 @@ div[id^="response-"][data-tidychat-collapsed="true"] {
   display: none !important;
 }
 
+/* ============================================
+   Gemini 平台特定样式
+   ============================================ */
+
+/* Gemini 特有内容隐藏 */
+user-query-content[data-tidychat-collapsed="true"] .user-query-container,
+user-query-content[data-tidychat-collapsed="true"] .query-content,
+user-query-content[data-tidychat-collapsed="true"] .file-preview-container,
+response-container[data-tidychat-collapsed="true"] .response-container,
+response-container[data-tidychat-collapsed="true"] .presented-response-container,
+response-container[data-tidychat-collapsed="true"] .response-container-header,
+response-container[data-tidychat-collapsed="true"] .response-container-footer,
+response-container[data-tidychat-collapsed="true"] bard-avatar {
+  display: none !important;
+}
+
+/* Gemini 容器重置 */
+user-query-content[data-tidychat-collapsed="true"],
+response-container[data-tidychat-collapsed="true"] {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 8px 0 !important;
+  background: transparent !important;
+  min-height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+/* Gemini 悬浮按钮隐藏 */
+user-query-content .tidychat-btn-container,
+response-container .tidychat-btn-container {
+  display: none !important;
+}
+
