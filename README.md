@@ -25,7 +25,6 @@
 | **ChatGPT** | ✅ 完全支持 | chatgpt.com, chat.openai.com |
 | **Grok** | ✅ 完全支持 | grok.com, x.com/i/grok |
 | **Gemini** | ✅ 完全支持 | gemini.google.com |
-| **Claude** | ✅ 完全支持 | claude.ai |
 | **豆包 (Doubao)** | ✅ 完全支持 | doubao.com |
 
 ## 功能特性
@@ -91,7 +90,6 @@ tidychat/
 │   │   ├── chatgpt.js         # ChatGPT 适配器
 │   │   ├── grok.js            # Grok 适配器
 │   │   ├── gemini.js          # Gemini 适配器
-│   │   ├── claude.js          # Claude 适配器
 │   │   ├── doubao.js          # 豆包适配器
 │   │   └── index.js           # 平台注册中心
 │   ├── core/

@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "TidyChat - AI Chat Collapser",
   "version": "1.0.0",
-  "description": "Collapse and expand AI chat messages for easier navigation. Supports ChatGPT, Grok, Claude, Gemini, Doubao and more.",
+  "description": "Collapse and expand AI chat messages for easier navigation. Supports ChatGPT, Grok, Gemini, Doubao and more.",
   "permissions": ["activeTab", "storage"],
   "host_permissions": [
     "https://chatgpt.com/*",
@@ -10,7 +10,6 @@
     "https://grok.com/*",
     "https://x.com/*",
     "https://grok.x.ai/*",
-    "https://claude.ai/*",
     "https://gemini.google.com/*",
     "https://www.doubao.com/*",
     "https://doubao.com/*"
@@ -31,7 +30,6 @@
         "https://grok.com/*",
         "https://x.com/*",
         "https://grok.x.ai/*",
-        "https://claude.ai/*",
         "https://gemini.google.com/*",
         "https://www.doubao.com/*",
         "https://doubao.com/*"
@@ -40,7 +38,6 @@
         "src/platforms/base.js",
         "src/platforms/chatgpt.js",
         "src/platforms/grok.js",
-        "src/platforms/claude.js",
         "src/platforms/gemini.js",
         "src/platforms/doubao.js",
         "src/platforms/index.js",

@@ -26,7 +26,7 @@
 ## ✅ 验证安装成功
 
 - Chrome 右上角会出现 TidyChat 图标
-- 打开 ChatGPT/Grok/Gemini/Claude/豆包 任意一个
+- 打开 ChatGPT/Grok/Gemini/豆包 任意一个
 - 页面右上角会出现绿色的折叠按钮
 
 ## 🎯 使用方法
@@ -40,7 +40,7 @@
 ## ❓ 常见问题
 
 **Q: 安装后没看到按钮？**
-- 确保你在支持的平台上（ChatGPT/Grok/Gemini/Claude/豆包）
+- 确保你在支持的平台上（ChatGPT/Grok/Gemini/豆包）
 - 刷新一下页面
 
 **Q: 提示"无法加载扩展程序"？**

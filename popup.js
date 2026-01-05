@@ -91,7 +91,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       'x.com/i/grok',
       'gemini.google.com',
       'bard.google.com',
-      'claude.ai',
       'poe.com'
     ];
 
