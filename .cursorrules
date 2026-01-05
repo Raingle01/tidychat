@@ -15,3 +15,202 @@
 - Test changes in browser after modifications
 - Verify on supported platforms (ChatGPT, Grok, etc.)
 
+---
+
+## UI Design Law (MUST FOLLOW FOR ALL PLATFORMS)
+
+All platforms MUST strictly follow this design specification. ChatGPT is the reference implementation.
+
+### 1. Color System
+
+#### User Messages - Green Theme
+- Primary: `#10b981` (emerald-500)
+- Hover: `#059669` (emerald-600)
+- Background: `rgba(16, 185, 129, 0.06)`
+- Background Hover: `rgba(16, 185, 129, 0.1)`
+- Text: `#065f46` (emerald-800)
+- Border: `4px solid #10b981`
+
+#### AI Messages - Blue Theme
+- Primary: `#3b82f6` (blue-500)
+- Hover: `#2563eb` (blue-600)
+- Background: `rgba(59, 130, 246, 0.06)`
+- Background Hover: `rgba(59, 130, 246, 0.1)`
+- Text: `#1e40af` (blue-800)
+- Border: `4px solid #3b82f6`
+
+#### Global Button - Green Gradient
+- Background: `linear-gradient(135deg, #10b981 0%, #059669 100%)`
+- Shadow: `0 4px 12px rgba(16, 185, 129, 0.4)`
+
+### 2. Collapsed Message Bar
+
+```css
+/* Base collapsed state */
+[data-tidychat-collapsed="true"] {
+  min-height: auto !important;
+  max-height: 60px !important;
+  padding: 12px 16px !important;
+  overflow: hidden !important;
+  cursor: pointer;
+}
+
+/* Preview text inside collapsed message */
+.tidychat-preview {
+  padding: 14px 20px;
+  font-size: 14px;
+  line-height: 1.6;
+  border-radius: 10px;
+  margin: 8px 0;
+  border-left: 4px solid [COLOR];  /* Green for user, Blue for AI */
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tidychat-preview:hover {
+  transform: translateX(2px);
+}
+```
+
+### 3. Hover Preview Popup
+
+```css
+.tidychat-preview-popup {
+  position: fixed;
+  z-index: 10001;
+  width: 400px;
+  max-width: calc(100vw - 40px);
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+/* Header */
+.tidychat-preview-popup-header {
+  padding: 10px 16px;
+  border-bottom: 1px solid #e5e7eb;
+  background: #f9fafb;
+  border-radius: 12px 12px 0 0;
+}
+
+/* Content */
+.tidychat-preview-popup-content {
+  max-height: 300px;
+  padding: 16px 20px;
+  overflow-y: auto;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Type indicator - top border */
+[data-type="user"] { border-top: 3px solid #10b981; }
+[data-type="assistant"] { border-top: 3px solid #3b82f6; }
+```
+
+#### Popup Positioning Rules
+- Position: Aligned with collapsed message bar left edge
+- Top offset: 5px below message bar
+- Fallback: Show above if near bottom edge
+
+### 4. Global Toggle Button
+
+```css
+.tidychat-global-btn {
+  position: fixed;
+  z-index: 10000;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  cursor: grab;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+}
+
+/* Draggable - position persisted in localStorage */
+/* Processing state - dim and shrink */
+.tidychat-global-btn.processing {
+  opacity: 0.6;
+  pointer-events: none;
+  transform: scale(0.95);
+}
+```
+
+### 5. Action Bar Button
+
+```css
+.tidychat-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #10b981;
+}
+
+.tidychat-action-btn:hover {
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.tidychat-action-btn svg {
+  width: 18px;
+  height: 18px;
+}
+```
+
+### 6. Dark Mode Support
+
+All components MUST support dark mode via:
+- `@media (prefers-color-scheme: dark)`
+- `.dark` class selector
+- `[data-theme="dark"]` attribute selector
+
+### 7. Platform Adapter Requirements
+
+When adding a new platform, the adapter MUST implement:
+
+```javascript
+class NewPlatformAdapter extends BasePlatformAdapter {
+  // Required methods
+  matchURL(url) { }              // Return true if URL matches this platform
+  getMessageSelector() { }       // CSS selector for message elements
+  isUserMessage(element) { }     // Return true if user message
+  extractMessageText(element) { } // Get plain text content
+  getButtonInsertPosition(element) { } // Where to insert toggle button
+  getGlobalButtonPosition() { }  // Default position for global button
+  getObserveTarget() { }         // Element to observe for new messages
+  
+  // Optional methods
+  getActionBar(element) { }      // Return action bar element
+  supportsActionBarInjection() { } // Return true to enable action bar button
+}
+```
+
+### 8. Data Attributes
+
+All platforms MUST use these data attributes:
+- `data-tidychat-initialized="true"` - Message has been processed
+- `data-tidychat-collapsed="true|false"` - Collapse state
+- `data-tidychat-type="user|assistant"` - Message type
+- `data-tidychat-clickable="true"` - Click to expand enabled
+- `data-tidychat-hover-attached="true"` - Hover preview attached
+
+### 9. Animation & Transitions
+
+Standard transitions:
+- Button hover: `transition: all 0.15s ease`
+- Collapse/expand: `transition: max-height 0.3s ease, opacity 0.3s ease`
+- Popup show: `transition: all 0.2s ease`
+- Preview hover: `transform: translateX(2px)`
+
+### 10. Z-Index Hierarchy
+
+- Global button: `10000`
+- Preview popup: `10001`
+- Individual button: `100`
